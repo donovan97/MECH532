@@ -1,0 +1,1 @@
+%Nom des différentes variables utilisées dans le code

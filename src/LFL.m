@@ -1,4 +1,4 @@
-function [X,x1,x2] = LFL(n,V,mu,g,CL,CD,rho,S,m)
+function [X,x1,x2] = LFL(n,mu,g,CL,CD,rho,S,m)
 %Calculation of Landing Field Length
 %   Assumptions: V=Vglide=cste during the rotation; Drag negligeable
 %   compare to solid friction
@@ -6,6 +6,7 @@ function [X,x1,x2] = LFL(n,V,mu,g,CL,CD,rho,S,m)
 % Inputs: n=load factor, V=Vglide (m/s), mu=solid friction coefficient, gamma=
 % glide angle (degre)
 % Outputs: LFL, distance during rotation, distance during ground run
+V=sqrt(2*m*g/(rho*S*CL));
 gamma=atan(CD/CL);
 x1=sin(gamma)*(V^2)/(n-1);
 % x2=(V^2)/(2*mu*g);

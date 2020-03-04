@@ -25,6 +25,7 @@ x=[0];
 dt=0.1;
 
 
+
 while 0 < v(end)
     test_frottement=g-CL*0.5*rho*S*(v(end)^2)/m;
     if test_frottement <0
@@ -37,9 +38,16 @@ while 0 < v(end)
         v=[v dv+v(end)];
         t=[t t(end)+dt];
         x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
+    end
 end
+clear figure
 plot(t,v)
+ylabel('Speed (m/s)');
+xlabel('Time (s)');
+pause
 hold on
+yyaxis right
+ylabel('Distance(m)');
 plot(t,x)
 x2=x(end);
 X=x1+x2;

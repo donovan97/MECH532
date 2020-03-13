@@ -33,12 +33,12 @@ CLmax = 0.9*clmax;
 % Analyse théorique  
 
 e1 = 0.87; % Oswald coeff
-M = 0.3; % Mach number : a changer
-A = 6; % Aspect ratio : a changer
-S = 40; %m2 : a changer
-b =  sqrt(S*A);
-c = S/b; 
-alphachoose = 4; % degrees_ a changer
+M = 0.02; % Mach number 
+b =  2;
+S = 0.2; %m2
+A = b*b/S; % Aspect ratio
+c = 0.1; 
+alphachoose = 4; % degrees
 
 tc = 0.087;
 xc = 0.302;
@@ -70,8 +70,9 @@ droite_pente = droite_pente + oo;
 
 % Calcul de Cd0
 
-C_f = 0.455/(((log10(Re))^2.58)*(1+0.144*M^2)^0.65);
-FF = (1+(0.6/xc)*tc+100*(tc)^4)*(1.34*M^0.18);
+C_f = 1.328/sqrt(Re);
+D = 0;
+FF = (1+(0.6/xc)*tc+100*(tc)^4)*(1.34*M^0.18)*(cos(D)^0.28);
 Q = 1;
 Swet = S*(1.977+0.52*tc);
 Cd0 = C_f*FF*Q*Swet/S;
@@ -84,4 +85,4 @@ plot(alphap, droite_pente)
 title(strcat('MH32', ' Re = ',num2str(Re), ' alpha = ', num2str(alphachoose)))
 legend(strcat('CL = ', num2str(CL)), strcat('Cd0 = ', num2str(Cd0)))
 xlabel('alpha (°)')
-yabel('Cl')
+ylabel('Cl')

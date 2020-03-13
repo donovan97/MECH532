@@ -1,8 +1,4 @@
-function [M_Root_y,My,M_Max_y,M_Root_x,Mx,M_Max_x] = moment(xeng)
-    %returns 
-    %M_Root_y : The moment of the y axis (vertical) at the root. 
-    %My : Vertical moment throughout the wing
-    %M_Max_y : Maximum moment of the 
+function [V0y, V0x, M0y, M0x] = moment(xeng) 
 
     load param.mat  
     [q,qd]=load_forces(parameters.Wto,parameters.Wws,parameters.n,parameters.L,parameters.Co,parameters.Ct);
@@ -25,27 +21,11 @@ function [M_Root_y,My,M_Max_y,M_Root_x,Mx,M_Max_x] = moment(xeng)
         centroid_d = trapz(x,qd_centroid)/trapz(x,qd);
 
         %V0 magnitude
-        V0y = Fq_mag; 
-        V0x = Fd_mag;
+        V0y = Fq_mag 
+        V0x = Fd_mag
 
         %M0 magnitude
-        M0y = centroid*Fq_mag;
-        M0x = centroid_d*Fd_mag;
-
-
-    %Calculating the shear force (+up) [ all terms have appropriate sign]
-    
-        Vy = -V0y + cumtrapz(x,q); 
-        Vx = -V0x + cumtrapz(x,qd);
-
-    %Calculating the bending moment (+cw)
-
-    My = M0y + cumtrapz(x,Vy);
-    M_Max_y = sign(max(abs(My)))*max(abs(My));
-    M_Root_y = abs(My(1));
-    
-    
-    Mx = M0x + cumtrapz(x,Vx);
-    M_Max_x = sign(max(abs(Mx)))*max(abs(Mx));
-    M_Root_x = abs(Mx(1));
+        M0y = centroid*Fq_mag
+        M0x = centroid_d*Fd_mag
+        
 end

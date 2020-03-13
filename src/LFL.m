@@ -1,4 +1,4 @@
-function [X,x1,x2] = LFL(n,mu,g,CL,CD,rho,S,m)
+function [X,x1,x2,x,t] = LFL(n,mu,g,CL,CD,rho,S,m)
 %Calculation of Landing Field Length
 %   Assumptions: V=Vglide=cste during the rotation; Drag negligeable
 %   compare to solid friction
@@ -18,11 +18,20 @@ x1=sin(gamma)*(V^2)/(n-1);
 %             dVdt=0
 %         end
 %     end
-%[t,v]= ode45(@landing,[0 10],[V]);     
-v=[V];
-t=[0];
+%[t,v]= ode45(@landing,[0 10],[V]);    
+
+T1=x1/V;
+t1=[0:0.01:T1];
+v=V*ones(1,length(t1));
+t=[t1];
 x=[0];
-dt=0.1;
+
+for k=1:length(t1)-1
+    x=[x x(end)+V*0.01];
+end
+length(t1)
+length(x)
+dt=0.01;
 
 
 

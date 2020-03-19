@@ -3,10 +3,14 @@ function [X,x1,x2,x,t] = LFL(mu)
 %   Assumptions: V=Vglide=cste during the rotation; Drag negligeable
 %   compare to solid friction
 %%%% mu is the solid friction coefficient
-m=parameters.Wto/parameters.g;
+
 % Inputs: n=load factor, V=Vglide (m/s), mu=solid friction coefficient, gamma=
 % glide angle (degre)
 % Outputs: LFL, distance during rotation, distance during ground run
+load param.mat
+
+
+m=parameters.Wto/parameters.g;
 S=parameters.L*(parameters.Co+parameters.Ct);
 V=sqrt(2*m*g/(parameters.rho*S*parameters.CL));
 gamma=atan(parameters.CD/parameters.CL);

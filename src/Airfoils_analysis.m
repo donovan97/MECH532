@@ -100,6 +100,20 @@ Swetvt = Svt*(1.977+0.52*parameters.tcvt);
 FFvt = (1+(0.6/parameters.xcvt)*parameters.tcvt+100*(parameters.tcvt)^4)*(1.34*M^0.18)*(cos(parameters.Dvt)^0.28);
 CdoVT = parameters.Cvt*FFvt*parameters.Q*Swetvt/parameters.Sw;
 
+%% Fuselage
+
+clear all
+close all
+clc
+
+load param.mat
+
+Re = parameters.rho*parameters.u*parameters.c/parameters.mu;
+C_f = 1.328/sqrt(Re);
+
+FFf = 1+(60/(parameters.lf/parameters.df)^3)+(parameters.lf/parameters.df)/400;
+Swetf = pi*(parameters.Aside+parameters.Atop)/2;
+CdoF = C_f*FFf*parameters.Q*Swetf/Sf;
 %% Archives
 
 % clear all

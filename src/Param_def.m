@@ -10,6 +10,7 @@ parameters.mu           = 18*10E-6 ;                        % [Pa/s]         vis
 parameters.e            = 0.87 ;                            %                coefficient d'Oswald   
 
 %Parameters
+%Les paramètres avec un w correspondent aux paramètres de l'aile
 
 parameters.L       		= 30 ;    							% [m]            Length of one wing
 parameters.Co      		= 2.5 ;     						% [m]            Chord length at wing root

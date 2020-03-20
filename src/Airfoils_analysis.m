@@ -21,6 +21,8 @@ MH32 = load('MH32.dat')
 plot(MH32(:,1),smooth(MH32(:,2)))
 title('MH32 Airfoil')
 
+load paramat.mat
+
 rho0 = 1.225;
 c = 0.1; %comparative table
 mu = 18e-6;
@@ -40,7 +42,7 @@ b =  2;
 S = 0.2; %m2
 A = b*b/S; % Aspect ratio
 c = 0.1; 
-alphachoose = 4; % degrees
+alphachoose = 5; % degrees
 
 tc = 0.087;
 xc = 0.302;
@@ -73,7 +75,7 @@ droite_pente = droite_pente + oo;
 % Calcul de Cd0
 
 C_f = 1.328/sqrt(Re);
-D = 0;
+D = 5;
 FF = (1+(0.6/xc)*tc+100*(tc)^4)*(1.34*M^0.18)*(cos(D)^0.28);
 Q = 1;
 Swet = S*(1.977+0.52*tc);

@@ -16,37 +16,22 @@ clc
 
 load param.mat
 
-figure(1)
-MH32 = load('MH32.dat')
-plot(MH32(:,1),smooth(MH32(:,2)))
-title('MH32 Airfoil')
+%figure(1)
+%MH32 = load('MH32.dat')
+%plot(MH32(:,1),smooth(MH32(:,2)))
+%title('MH32 Airfoil')
 
-load paramat.mat
 
-% rho0 = 1.225;
-% c = 0.1; %comparative table
-% mu = 18e-6;
-% u = 8; %which velocity is required in cruise
 Re = parameters.rho*parameters.u*parameters.c/parameters.mu;
 
 % Analyse XFLR
 
-% clmax = 1.1;
 CLmax = 0.9*parameters.clmax;
 
 % Analyse théorique  
 
-% e1 = 0.87; % Oswald coeff
-% M = 0.02; % Mach number 
-% b =  2;
-% S = 0.2; %m2
-% A = b*b/S; % Aspect ratio
-% c = 0.1; 
-% alphachoose = 5; % degrees
-
-% tc = 0.087;
-% xc = 0.302;
-
+M = 0.02; % Mach number 
+Aw = parameters.bw*parameters.bw/parameters.Sw; % Aspect ratio
 alphap = [-5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8 9 12];
 Clp = [-4.003 -0.3205 -0.2218 -0.1218 -0.0384 0.0413 0.1256 0.3366 0.4946 0.6596 0.8006 0.9025 0.9854 1.0499 1.0991 0.9141];
 
@@ -57,14 +42,14 @@ y1 = Clp(length(alphap)-t0);
 x0 = alphap(t0);
 x1 = alphap(length(alphap)-t0);
 a0 = (y1-y0)/(x1-x0); %a0 en incompressible
-a3d = a0/(sqrt(1-parameters.M^2)+a0/(pi*parameters.e*A)); % a0 en 3d
+a3d = a0/(sqrt(1-M^2)+a0/(pi*parameters.e*Aw)); % a0 en 3d
 
 %alpha for Cl =0
 [trash ,indice] = min(abs(Clp));
 alphal0 = alphap(indice);
 
 %Final CL 
-CL = a3d*(parameters.alpha - alphal0);
+CL = a3d*(parameters.alphaw - alphal0);
 
 %a0 slope to ensure the good approximation
     
@@ -75,11 +60,9 @@ droite_pente = droite_pente + oo;
 % Calcul de Cd0
 
 C_f = 1.328/sqrt(Re);
-D = 5;
-FF = (1+(0.6/parameters.xc)*parameters.tc+100*(parameters.tc)^4)*(1.34*parameters.M^0.18)*(cos(parameters.D)^0.28);
-% Q = 1;
-Swet = parameters.S*(1.977+0.52*parameters.tc);
-Cd0 = C_f*FF*parameters.Q*Swet/parameters.S;
+FF = (1+(0.6/parameters.xcw)*parameters.tcw+100*(parameters.tcw)^4)*(1.34*M^0.18)*(cos(parameters.Dw)^0.28);
+Swetw = parameters.Sw*(1.977+0.52*parameters.tcw);
+Cd0 = C_f*FF*parameters.Q*Swetw/parameters.Sw;
     
 %Plot
 figure(2)

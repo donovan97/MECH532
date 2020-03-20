@@ -19,6 +19,8 @@ MH32 = load('MH32.dat')
 plot(MH32(:,1),smooth(MH32(:,2)))
 title('MH32 Airfoil')
 
+load paramat.mat
+
 rho0 = 1.225;
 c = 0.1; %comparative table
 mu = 18e-6;

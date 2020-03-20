@@ -28,7 +28,7 @@ parameters.clmax        = 1.1 ;                             %                clm
 %Les paramètres avec un w correspondent aux paramètres de l'aile
 parameters.bw           = 2 ;                               % [m]            envergure
 parameters.Sw           = 0.2 ;                             % [m^2]          surface à l'air
-parameters.alphaw       = 5 ;                               % [degré]        angle d'incidence
+parameters.alphaw       = 2 ;                               % [degré]        angle d'incidence
 parameters.tcw          = 0.087 ;                           %                épaisseur max    
 parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   
 parameters.Dw           = 5 ;                               % [degré]        angle de dihèdre
@@ -47,6 +47,9 @@ parameters.lvt          = 1 ;                               % [m]            dis
 parameters.tcvt         = 0.15 ;                            %                épaisseur max    
 parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max
 parameters.Dvt          = 0 ;                               % [degré]        angle de dihèdre
-
+%Les paramètres avec un f correspondent aux paramètres du fuselage 
+%parameters.lf           = ;                                 % [m]            longueur du fuselage
+%parameters.df           = ;                                 % [m]            diamètre du fuselage
+%parameters.Sf           = ;                                 % [m^2]          surface à l'air fuselage        
 save('param.mat','parameters')
 

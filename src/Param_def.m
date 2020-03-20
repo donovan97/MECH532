@@ -18,8 +18,15 @@ parameters.h       		= 0.02*parameters.Co;      			% [m]            max camber o
 parameters.n       		= 1 ;       						% [-]            load factor
 parameters.g       		= 9.81;     						% [m/s^2)        gravitational constant
 parameters.dihedral     = 0 ;           					% [rad]          Dihedral angle of the wing
-parameters.x            = linspace(0, parameters.L,1000);
+parameters.x            = linspace(0, parameters.L,1000);   % [-]            1000 discrete points for wing
 parameters.drag         = 15 ;           					% [N]            Total drag force on the glider
+
+%Material properties of EPP foam
+
+parameters.Sut          = 0.38 ;                            % [MPa]          Ultimate tensile strength of EPP foam
+parameters.Suc          = 0.44 ;                            % [MPa]          Ultimate compressive strength of EPP foam
+
+
 
 save('param.mat','parameters')
 

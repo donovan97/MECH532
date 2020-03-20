@@ -20,17 +20,17 @@ parameters.t       		= 0.12*parameters.Co;  				% [m]            Max thickness o
 parameters.h       		= 0.02*parameters.Co;      			% [m]            max camber of NACA 
 parameters.n       		= 1 ;       						% [-]            load factor
 parameters.g       		= 9.81;     						% [m/s^2)        gravitational constant
-parameters.dihedral     = 0 ;           					% [rad]          Dihedral angle of the wing
+parameters.dihedralw    = 0 ;           					% [rad]          Dihedral angle of the wing
 parameters.x            = linspace(0, parameters.L,1000);
 parameters.drag         = 15 ;           					% [N]            Total drag force on the glider
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
 parameters.clmax        = 1.1 ;                             %                clmax 2D    
-parameters.b            = 2 ;                               % [m]            envergure
-parameters.S            = 0.2 ;                             % [m^2]          surface à l'air
-parameters.alpha        = 5 ;                               % [degré]        angle d'incidence
-parameters.tc           = 0.087 ;                           %                épaisseur max    
-parameters.xc           = 0.302 ;                           %                position de l'épaisseur max   
-parameters.D            = 5 ;                               % [degré]        angle de dihèdre
+parameters.bw           = 2 ;                               % [m]            envergure
+parameters.Sw           = 0.2 ;                             % [m^2]          surface à l'air
+parameters.alphaw       = 5 ;                               % [degré]        angle d'incidence
+parameters.tcw          = 0.087 ;                           %                épaisseur max    
+parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   
+parameters.Dw           = 5 ;                               % [degré]        angle de dihèdre
 parameters.Q            = 1 ;                               %                coefficient d'interférence
 
 save('param.mat','parameters')

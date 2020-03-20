@@ -10,7 +10,6 @@ parameters.mu           = 18*10E-6 ;                        % [Pa/s]         vis
 parameters.e            = 0.87 ;                            %                coefficient d'Oswald   
 
 %Parameters
-%Les paramètres avec un w correspondent aux paramètres de l'aile
 
 parameters.L       		= 30 ;    							% [m]            Length of one wing
 parameters.Co      		= 2.5 ;     						% [m]            Chord length at wing root
@@ -26,6 +25,7 @@ parameters.x            = linspace(0, parameters.L,1000);
 parameters.drag         = 15 ;           					% [N]            Total drag force on the glider
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
 parameters.clmax        = 1.1 ;                             %                clmax 2D    
+%Les paramètres avec un w correspondent aux paramètres de l'aile
 parameters.bw           = 2 ;                               % [m]            envergure
 parameters.Sw           = 0.2 ;                             % [m^2]          surface à l'air
 parameters.alphaw       = 5 ;                               % [degré]        angle d'incidence
@@ -33,6 +33,20 @@ parameters.tcw          = 0.087 ;                           %                épa
 parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   
 parameters.Dw           = 5 ;                               % [degré]        angle de dihèdre
 parameters.Q            = 1 ;                               %                coefficient d'interférence
+%Les paramètres avec un vt correspondent aux paramètres de l'empennage
+%horizontal
+parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
+parameters.Cht          = 0.5 ;                             %                coefficient d'empennage horizontal
+parameters.tcht         = 0.15 ;                            %                épaisseur max    
+parameters.xcht         = 0.30 ;                            %                position de l'épaisseur max
+parameters.lht          = 1 ;                               % [m]            distance aile/empennage
+parameters.Dht          = 0 ;                               % [degré]        angle de dihèdre
+%Les paramètres avec un vt correspondent aux paramètres de l'empennage
+%verticale
+parameters.lvt          = 1 ;                               % [m]            distance aile/empennage
+parameters.tcvt         = 0.15 ;                            %                épaisseur max    
+parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max
+parameters.Dvt          = 0 ;                               % [degré]        angle de dihèdre
 
 save('param.mat','parameters')
 

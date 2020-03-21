@@ -1,4 +1,4 @@
-function [V0y, V0x, M0y, M0x] = moment(xeng) 
+function [V0y, V0x, M0y, M0x] = moment() 
 
     load param.mat  
     [q,qd]=load_forces(parameters.Wto,parameters.Wws,parameters.n,parameters.L,parameters.Co,parameters.Ct);

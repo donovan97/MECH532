@@ -24,6 +24,14 @@ parameters.a2           = 1.2 ;                             % [-]            Ele
 parameters.b1           = -0.006 ;                          % [-]            Tailplane hinge curve slope
 parameters.b2           = -0.014 ;                          % [-]            Elevator hinge curve slope
 
+%Parameters for directional and lateral static stability
+
+parameters.Cl           =  1.1 ;                            % [-]            Lift coefficient (3D?)
+parameters.Kn           =  0.003 ;                          % [-]            Wing-body interference factor, obtain manually from Pamadi P.271
+parameters.Krl          =  1.5 ;                            % [-]            Reynolds number factor, obtain manually from Pamadi P.272
+parameters.zv           =  0.25 ;                           % [m]            Vertical distance between center of gravity and vertical tail aerodynamic center
+parameters.lv           =  1 ;                              % [m]            Horizontal distance between center of gravity and vertical tail aerodynamic center
+
 %General Parameters
 
 parameters.L       		= 30 ;    							% [m]            Length of one wing
@@ -65,9 +73,13 @@ parameters.lvt          = 1 ;                               % [m]            dis
 parameters.tcvt         = 0.15 ;                            %                épaisseur max    
 parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max
 parameters.Dvt          = 0 ;                               % [degré]        angle de dihèdre
+parameters.Svt          = 0.025  ;                          % [m^2]          (Vertical) fin area
+parameters.avt          = 3.5  ;                            % [-]            Fin lift curve slope
 
 %Les paramètres avec un f correspondent aux paramètres du fuselage 
-%parameters.lf           = ;                                 % [m]            longueur du fuselage
-%parameters.df           = ;                                 % [m]            diamètre du fuselage
-%parameters.Sf           = ;                                 % [m^2]          surface à l'air fuselage        
+parameters.lf           = 2;                                % [m]            longueur du fuselage
+parameters.df           = 0.25;                             % [m]            diamètre du fuselage
+parameters.Sf           = 0.5;                              % [m^2]          surface à l'air fuselage  
+parameters.Sprojf       = 0.5;                              % [m^2]          projected side area of fuselage 
+
 save('param.mat','parameters')

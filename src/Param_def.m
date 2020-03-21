@@ -12,7 +12,19 @@ parameters.e            = 0.87 ;                            %                coe
 parameters.Sut          = 0.38 ;                            % [MPa]          Ultimate tensile strength of EPP foam
 parameters.Suc          = 0.44 ;                            % [MPa]          Ultimate compressive strength of EPP foam
 
-%Parameters
+%Parameters for longitudinal static stability
+
+parameters.cg           = 0.75 ;                            % [m]            Centerline distance from the front tip of the aircraft to the center of gravity (obtain from CAD?)
+parameters.wingDist     = 1 ;                               % [m]            Centerline distance from the front tip of the aircraft to the leading edge of the wing
+parameters.h0           = 0.25 ;                            % [-]            Distance of aerodynamic center aft leading edge of MAC(mean aerodynamic chord), normalized by MAC (set to 0.25)
+parameters.lt           = 0.5  ;                            % [m]            Tailplane moment arm
+parameters.a            = 4.2 ;                             % [-]            Wing lift curve slope
+parameters.a1           = 4.3 ;                             % [-]            Tailplane lift curve slope
+parameters.a2           = 1.2 ;                             % [-]            Elevator lift curve slope
+parameters.b1           = -0.006 ;                          % [-]            Tailplane hinge curve slope
+parameters.b2           = -0.014 ;                          % [-]            Elevator hinge curve slope
+
+%General Parameters
 
 parameters.L       		= 30 ;    							% [m]            Length of one wing
 parameters.Co      		= 2.5 ;     						% [m]            Chord length at wing root
@@ -36,6 +48,7 @@ parameters.tcw          = 0.087 ;                           %                épa
 parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   
 parameters.Dw           = 5 ;                               % [degré]        angle de dihèdre
 parameters.Q            = 1 ;                               %                coefficient d'interférence
+
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %horizontal
 parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
@@ -44,12 +57,15 @@ parameters.tcht         = 0.15 ;                            %                épa
 parameters.xcht         = 0.30 ;                            %                position de l'épaisseur max
 parameters.lht          = 1 ;                               % [m]            distance aile/empennage
 parameters.Dht          = 0 ;                               % [degré]        angle de dihèdre
+parameters.Sht          = 0.05  ;                           % [m^2]          (Horizontal) tailplane area
+
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %verticale
 parameters.lvt          = 1 ;                               % [m]            distance aile/empennage
 parameters.tcvt         = 0.15 ;                            %                épaisseur max    
 parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max
 parameters.Dvt          = 0 ;                               % [degré]        angle de dihèdre
+
 %Les paramètres avec un f correspondent aux paramètres du fuselage 
 %parameters.lf           = ;                                 % [m]            longueur du fuselage
 %parameters.df           = ;                                 % [m]            diamètre du fuselage

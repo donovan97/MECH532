@@ -1,14 +1,16 @@
 function [E] = Endurance(phi,CL,CD,m,S,rho,g)
 % Calcul l'endurance en s durant la mission
 %   htypothèse: rho=rho0= 1.225 kg/m, altitude de départ=200m
+m=parameters.Wto/parameters.g;
+S=parameters.L*(parameters.Co+parameters.Ct);
 h=200;  %m
 n=1/cos(phi);
-Vt=sqrt(2*n*m*g/(rho*S*CL));
-V=sqrt(2*m*g/(rho*S*CL));
-Vst=sqrt(2*m*g/(rho*S))*(n/CL)^(3/2)*CD;
+Vt=sqrt(2*n*m*parameters.g/(parameters.rho*S*parameters.Cl));
+V=sqrt(2*m*parameters.g/(parameters.rho*S*parameters.Cl));
+Vst=sqrt(2*m*parameters.g/(parameters.rho*S))*(n/parameters.Cl)^(3/2)*parameters.Cd;
 Vs=n^(-3/2)*Vst;
-R=(Vt^2)/(g*((n^2)-1));
-w=sqrt(2*n*m*g/(rho*S*CL))/R;
+R=(Vt^2)/(parameters.g*((n^2)-1));
+w=sqrt(2*n*m*parameters.g/(parameters.rho*S*parameters.Cl))/R;
 t_t=pi/w;
 h_t=t_t*Vst;
 h_g=100-h_t/2;

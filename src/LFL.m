@@ -13,13 +13,13 @@ load param.mat
 m=parameters.Wto/parameters.g;
 S=parameters.L*(parameters.Co+parameters.Ct);
 V=sqrt(2*m*g/(parameters.rho*S*parameters.CL));
-gamma=atan(parameters.CD/parameters.CL);
+gamma=atan(parameters.Cd/parameters.CL);
 x1=sin(gamma)*(V^2)/(parameters.n-1);
 % x2=(V^2)/(2*mu*g);
 % 
 %     function dVdt=landing(t,v)
 %         if 0<=v
-%             dVdt=-mu*g + 0.5*parameters.rho*S*v^2*(mu*parameters.CL-parameters.CD)/m;
+%             dVdt=-mu*g + 0.5*parameters.rho*S*v^2*(mu*parameters.CL-parameters.Cd)/m;
 %         else
 %             dVdt=0
 %         end
@@ -44,12 +44,12 @@ dt=0.01;
 while 0 < v(end)
     test_frottement=g-parameters.CL*0.5*parameters.rho*S*(v(end)^2)/m;
     if test_frottement <0
-        dv=-dt*0.5*parameters.rho*S*parameters.CD*(v(end)^2)/m;
+        dv=-dt*0.5*parameters.rho*S*parameters.Cd*(v(end)^2)/m;
         v=[v dv+v(end)];
         t=[t t(end)+dt];
         x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
     else
-        dv=(dt*(0.5*parameters.rho*S*(mu*parameters.CL-parameters.CD)*(v(end)^2)/m)-mu*g*dt);
+        dv=(dt*(0.5*parameters.rho*S*(mu*parameters.CL-parameters.Cd)*(v(end)^2)/m)-mu*g*dt);
         v=[v dv+v(end)];
         t=[t t(end)+dt];
         x=[x (((v(end)+v(end-1))*dt/2)+x(end))];

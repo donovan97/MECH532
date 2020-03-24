@@ -89,7 +89,7 @@ M = 0.02; % Mach number
 Sht = parameters.Cht*parameters.c*parameters.Sw/parameters.lht;
 
 Swetht = Sht*(1.977+0.52*parameters.tcht);
-FFht = (1+(0.6/parameters.xcht)*parameters.tcht+100*(parameters.tcht)^4)*(1.34*M^0.18)*(cos(parameters.Dht)^0.28);
+FFht = 1.1*(1+(0.6/parameters.xcht)*parameters.tcht+100*(parameters.tcht)^4)*(1.34*M^0.18)*(cos(parameters.Dht)^0.28);
 CdoHT = parameters.Cht*FFht*parameters.Q*Swetht/parameters.Sw;
 
 %Vertical tail
@@ -97,7 +97,7 @@ CdoHT = parameters.Cht*FFht*parameters.Q*Swetht/parameters.Sw;
 Svt = parameters.Cvt*parameters.bw*parameters.Sw/parameters.lvt;
 
 Swetvt = Svt*(1.977+0.52*parameters.tcvt);
-FFvt = (1+(0.6/parameters.xcvt)*parameters.tcvt+100*(parameters.tcvt)^4)*(1.34*M^0.18)*(cos(parameters.Dvt)^0.28);
+FFvt = 1.1*(1+(0.6/parameters.xcvt)*parameters.tcvt+100*(parameters.tcvt)^4)*(1.34*M^0.18)*(cos(parameters.Dvt)^0.28);
 CdoVT = parameters.Cvt*FFvt*parameters.Q*Swetvt/parameters.Sw;
 
 %% Fuselage

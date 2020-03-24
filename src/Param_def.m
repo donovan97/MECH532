@@ -66,6 +66,7 @@ parameters.xcht         = 0.30 ;                            %                pos
 parameters.lht          = 1 ;                               % [m]            distance aile/empennage
 parameters.Dht          = 0 ;                               % [degré]        angle de dihèdre
 parameters.Sht          = 0.05  ;                           % [m^2]          (Horizontal) tailplane area
+parameters.Qt           = 1.04 ;                            %                coefficient d'interférence
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %verticale

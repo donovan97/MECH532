@@ -2,7 +2,7 @@
 
 parameters.Wws     		= 7790 ;  							% [kg]           Weight of wing structure
 parameters.Wfus    		= 31160 ; 							% [kg]           Weight of the fuselage
-parameters.Wto     		= parameters.Wws +parameters.Wfus   % [kg]           Total aircraft weight
+parameters.Wto     		= parameters.Wws +parameters.Wfus;   % [kg]           Total aircraft weight
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
 parameters.mu           = 18E-6 ;                        % [Pa/s]         viscosité dynamique   
 parameters.e            = 0.87 ;                            %                coefficient d'Oswald   

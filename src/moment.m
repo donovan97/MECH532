@@ -1,4 +1,4 @@
-function [V0y, V0x, M0y, M0x] = moment(xeng) 
+function [V0y, V0x, M0y, M0x] = moment() 
 
     load param.mat  
     [q,qd]=load_forces(parameters.Wto,parameters.Wws,parameters.n,parameters.L,parameters.Co,parameters.Ct);
@@ -27,5 +27,23 @@ function [V0y, V0x, M0y, M0x] = moment(xeng)
         %M0 magnitude
         M0y = centroid*Fq_mag
         M0x = centroid_d*Fd_mag
+        
+        %M0y will always be bigger than M0x, therefore critical point uses M0y to compute stresses
+        
+        %Second moment of area of airfoil is approximated as a rectangle of height max airfoil thickness and width 0.5*chord
+        
+        I = ((parameters.Co/2)*(parameters.t)^3)/12;
+        
+        sigma = (M0y*(parameters.t/2))/I; %[Pa]
+        
+        %assuming no torsion on the wing, tau = 0
+        %Stress caused by M0x is 0 at its neutral axis, which coincides with critical point due to M0y
+        %Therefore, sigma_1 = sigma and sigma_3 = 0;
+        
+        if (sigma < (parameters.Sut*1E06) && sigma < (parameters.Suc*1E06))
+            disp("Aircraft is structurally sound");
+        else
+            disp("Aircraft is not structurally sound");
+        end
         
 end

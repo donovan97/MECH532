@@ -4,7 +4,7 @@ parameters.Wws     		= 7790 ;  							% [kg]           Weight of wing structure
 parameters.Wfus    		= 31160 ; 							% [kg]           Weight of the fuselage
 parameters.Wto     		= parameters.Wws +parameters.Wfus   % [kg]           Total aircraft weight
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
-parameters.mu           = 18*10E-6 ;                        % [Pa/s]         viscosité dynamique   
+parameters.mu           = 18E-6 ;                        % [Pa/s]         viscosité dynamique   
 parameters.e            = 0.87 ;                            %                coefficient d'Oswald   
 
 %Material properties of EPP foam
@@ -49,6 +49,7 @@ parameters.drag         = 15 ;           					% [N]            Total drag force 
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
 parameters.clmax        = 1.1 ;                             %                clmax 2D 
 %Les paramètres avec un w correspondent aux paramètres de l'aile
+
 parameters.bw           = 2 ;                               % [m]            envergure
 parameters.Sw           = 0.2 ;                             % [m^2]          surface à l'air
 parameters.alphaw       = 2 ;                               % [degré]        angle d'incidence
@@ -59,7 +60,7 @@ parameters.Q            = 1 ;                               %                coe
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %horizontal
-parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
+
 parameters.Cht          = 0.5 ;                             %                coefficient d'empennage horizontal
 parameters.tcht         = 0.15 ;                            %                épaisseur max    
 parameters.xcht         = 0.30 ;                            %                position de l'épaisseur max
@@ -70,6 +71,8 @@ parameters.Qt           = 1.04 ;                            %                coe
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %verticale
+
+parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
 parameters.lvt          = 1 ;                               % [m]            distance aile/empennage
 parameters.tcvt         = 0.15 ;                            %                épaisseur max    
 parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max

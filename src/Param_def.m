@@ -48,6 +48,8 @@ parameters.x            = linspace(0, parameters.L,1000);
 parameters.drag         = 15 ;           					% [N]            Total drag force on the glider
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
 parameters.clmax        = 1.1 ;                             %                clmax 2D 
+parameters.Cd           = 0.036 ;                           %                Cd of the glider
+
 %Les paramètres avec un w correspondent aux paramètres de l'aile
 
 parameters.bw           = 2 ;                               % [m]            envergure
@@ -81,6 +83,7 @@ parameters.Svt          = 0.025  ;                          % [m^2]          (Ve
 parameters.avt          = 3.5  ;                            % [-]            Fin lift curve slope
 
 %Les paramètres avec un f correspondent aux paramètres du fuselage 
+
 parameters.lf           = 2;                                % [m]            longueur du fuselage
 parameters.df           = 0.25;                             % [m]            diamètre du fuselage
 parameters.Sf           = 0.5;                              % [m^2]          surface à l'air fuselage  

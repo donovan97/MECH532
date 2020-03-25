@@ -86,11 +86,11 @@ M = 0.02; % Mach number
 
 %Horizontal tail
 
-Sht = parameters.Cht*parameters.c*parameters.Sw/parameters.lht;
+Sht = 0.1*parameters.c*parameters.Sw/parameters.lht;
 
 Swetht = Sht*(1.977+0.52*parameters.tcht);
 FFht = 1.1*(1+(0.6/parameters.xcht)*parameters.tcht+100*(parameters.tcht)^4)*(1.34*M^0.18)*(cos(parameters.Dht)^0.28);
-CdoHT = parameters.Cht*FFht*parameters.Qt*Swetht/parameters.Sw;
+CdoHT = 0.1*FFht*parameters.Qt*Swetht/parameters.Sw;
 
 %Vertical tail
 
@@ -109,7 +109,7 @@ clc
 
 load param.mat
 
-Re = parameters.rho*parameters.u*parameters.c/parameters.mu;
+Re = parameters.rho*parameters.u*2/parameters.mu;
 C_f = 1.328/sqrt(Re) ;
 
 FFf = 1+(60/(parameters.lf/parameters.df)^3)+(parameters.lf/parameters.df)/400;

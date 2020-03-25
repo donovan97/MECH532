@@ -22,7 +22,7 @@ load param.mat
 %title('MH32 Airfoil')
 
 
-Re = parameters.rho*parameters.u*parameters.c/parameters.mu;
+Re_W = parameters.rho*parameters.u*parameters.c/parameters.mu;
 
 % Analyse XFLR
 
@@ -59,7 +59,7 @@ droite_pente = droite_pente + oo;
 
 % Calcul de Cd0
 
-C_f = 1.328/sqrt(Re);
+C_f = 1.328/sqrt(Re_W);
 FF = (1+(0.6/parameters.xcw)*parameters.tcw+100*(parameters.tcw)^4)*(1.34*M^0.18)*(cos(parameters.Dw)^0.28);
 Swetw = parameters.Sw*(1.977+0.52*parameters.tcw);
 Cd0 = C_f*FF*parameters.Q*Swetw/parameters.Sw;
@@ -69,7 +69,7 @@ figure(2)
 hold on
 plot(alphap, Clp)
 plot(alphap, droite_pente)
-title(strcat('MH32', ' Re = ',num2str(Re), ' alpha = ', num2str(parameters.alpha)))
+title(strcat('MH32', ' Re = ',num2str(Re_W), ' alpha = ', num2str(parameters.alphaw)))
 legend(strcat('CL = ', num2str(CL)), strcat('Cd0 = ', num2str(Cd0)))
 xlabel('alpha (°)')
 ylabel('Cl')
@@ -109,8 +109,8 @@ clc
 
 load param.mat
 
-Re = parameters.rho*parameters.u*2/parameters.mu;
-C_f = 1.328/sqrt(Re) ;
+Re_f = parameters.rho*parameters.u*parameters.lf/parameters.mu;
+C_f = 1.328/sqrt(Re_f) ;
 
 FFf = 1+(60/(parameters.lf/parameters.df)^3)+(parameters.lf/parameters.df)/400;
 Aside = parameters.lf*parameters.df;

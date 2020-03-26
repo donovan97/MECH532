@@ -56,6 +56,7 @@ parameters.tcw          = 0.087 ;                           %                épa
 parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   
 parameters.Dw           = 5 ;                               % [degré]        angle de dihèdre
 parameters.Q            = 1 ;                               %                coefficient d'interférence
+parameters.f            =0.5 ;                              % [s-u]          coefficient de frottement avec la piste d'aterrissage
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %horizontal

@@ -2,7 +2,7 @@ function [E] = Endurance()
 % Calcul l'endurance en s durant la mission
 %   htypothèse: rho=rho0= 1.225 kg/m, altitude de départ=200m
 load param.mat
-m=parameters.Wto/parameters.g;
+m=parameters.Wto;
 S=parameters.L*(parameters.Co+parameters.Ct);
 h=200;  %m
 

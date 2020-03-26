@@ -1,4 +1,4 @@
-function [Cd0_w,Cd0_HT, Cd0_VT, Cd0_F] = Parasitedrag()
+function [Cd0_w,Cd0_HT, Cd0_VT, Cd0_F, CD, f] = Parasitedrag()
 
 load param.mat
 
@@ -76,6 +76,12 @@ Aside = parameters.lf*parameters.df;
 Atop = pi*parameters.df^2;
 Swetf = pi*(Aside+Atop)/2;
 Cd0_F = C_f*FFf*parameters.Q*Swetf/parameters.Sw;
+
+k = 1/(pi*Aw*parameters.e);
+
+CD = Cd0_w + Cd0_HT + Cd0_VT + Cd0_F + k*parameters.CLmax*parameters.CLmax;
+
+f = parameters.CLmax/CD;
 
 end
 

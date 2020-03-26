@@ -117,6 +117,7 @@ Aside = parameters.lf*parameters.df;
 Atop = pi*parameters.df^2;
 Swetf = pi*(Aside+Atop)/2;
 CdoF = C_f*FFf*parameters.Q*Swetf/parameters.Sw;
+zee z
 %% Archives
 
 % clear all

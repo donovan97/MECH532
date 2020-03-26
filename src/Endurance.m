@@ -3,7 +3,7 @@ function [E] = Endurance()
 %   htypothèse: rho=rho0= 1.225 kg/m, altitude de départ=200m
 load param.mat
 m=parameters.Wto;
-S=parameters.L*(parameters.Co+parameters.Ct);
+S=parameters.Sw;
 h=200;  %m
 
 Vt=sqrt(2*parameters.n*m*parameters.g/(parameters.rho*S*parameters.Cl));

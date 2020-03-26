@@ -90,7 +90,7 @@ Sht = parameters.Cht*parameters.c*parameters.Sw/parameters.lht;
 
 Swetht = Sht*(1.977+0.52*parameters.tcht);
 FFht = 1.1*(1+(0.6/parameters.xcht)*parameters.tcht+100*(parameters.tcht)^4)*(1.34*M^0.18)*(cos(parameters.Dht)^0.28);
-CdoHT = parameters.Cht*FFht*parameters.Qt*Swetht/parameters.Sw;
+CdoHT = parameters.Cht*FFht*parameters.Q*Swetht/parameters.Sw;
 
 %Vertical tail
 
@@ -98,8 +98,7 @@ Svt = parameters.Cvt*parameters.bw*parameters.Sw/parameters.lvt;
 
 Swetvt = Svt*(1.977+0.52*parameters.tcvt);
 FFvt = 1.1*(1+(0.6/parameters.xcvt)*parameters.tcvt+100*(parameters.tcvt)^4)*(1.34*M^0.18)*(cos(parameters.Dvt)^0.28);
-CdoVT = parameters.Cvt*FFvt*parameters.Qt*Swetvt/parameters.Sw;
-
+CdoVT = parameters.Cvt*FFvt*parameters.Q*Swetvt/parameters.Sw;
 
 %% Fuselage
 
@@ -110,13 +109,11 @@ clc
 load param.mat
 
 Re = parameters.rho*parameters.u*parameters.c/parameters.mu;
-C_f = 1.328/sqrt(Re) ;
+C_f = 1.328/sqrt(Re);
 
 FFf = 1+(60/(parameters.lf/parameters.df)^3)+(parameters.lf/parameters.df)/400;
-Aside = parameters.lf*parameters.df;
-Atop = pi*parameters.df^2;
-Swetf = pi*(Aside+Atop)/2;
-CdoF = C_f*FFf*parameters.Q*Swetf/parameters.Sw;
+Swetf = pi*(parameters.Aside+parameters.Atop)/2;
+CdoF = C_f*FFf*parameters.Q*Swetf/Sf;
 %% Archives
 
 % clear all

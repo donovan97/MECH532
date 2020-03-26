@@ -11,7 +11,7 @@ function [X,x1,x2,x,v,t] = LFL()
 load param.mat
 
 g=parameters.g;
-m=parameters.Wto/parameters.g;
+m=parameters.Wto;
 S=parameters.L*(parameters.Co+parameters.Ct);
 V=sqrt(2*m*g/(parameters.rho*S*parameters.Cl));
 gamma=atan(parameters.Cd/parameters.Cl);

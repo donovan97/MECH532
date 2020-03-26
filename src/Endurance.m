@@ -8,7 +8,7 @@ h=200;  %m
 
 Vt=sqrt(2*parameters.n*m*parameters.g/(parameters.rho*S*parameters.Cl));
 V=sqrt(2*m*parameters.g/(parameters.rho*S*parameters.Cl));
-Vst=sqrt(2*m*parameters.g/(parameters.rho*S))*(parameters.n/parameters.Cl)^(3/2)*parameters.Cd;
+Vst=sqrt(2*m*parameters.g/(parameters.rho*S))*(parameters.n/parameters.Cl)^(3/2)*parameters.Cd ;
 Vs=parameters.n^(-3/2)*Vst;
 R=(Vt^2)/(parameters.g*((parameters.n^2)-1));
 w=sqrt(2*parameters.n*m*parameters.g/(parameters.rho*S*parameters.Cl))/R;
@@ -20,30 +20,44 @@ t_g=h_g/Vs;
 
 E=t_t+2*t_g;
 
-
+dt=0.01;
 %%Plot trajectoire
-t=[0:1:E];
-x=[0:1:E];
-y=[0:1:E];
-z=[0:1:E];
-z(1)=200;
-x(1)=0;
-for k=1:floor(t_g)
-    z(k+1)=z(k)-Vs;
-    x(k+1)=x(k)+V;
-end
+t_1=[0:dt:t_g];
+x_1=[0:dt:t_g];
+z_1=[0:dt:t_g];
 
-for k=floor(t_g+1):floor(t_g+t_t)
-    z(k+1)=z(k)-Vst;
-    x(k+1)=x(k)+R*w*sin(w*(t(k)-t_g+1));
+z_1(1)=200;
+x_1(1)=0;
+for k=1:length(t_1)
+    z_1(k+1)=z_1(k)-Vs*dt;
+    x_1(k+1)=x_1(k)+V*dt;
 end
+t_2=[0:dt:t_t];
+x_2=[0:dt:t_t];
+z_2=[0:dt:t_t];
 
-for k=floor(t_g+t_t+1):length(y)-1
-    z(k+1)=z(k)-Vs;
-    x(k+1)=x(k)-V;
+z_2(1)=z_1(end);
+x_2(1)=x_1(end);
+
+for k=1:length(t_2)
+    z_2(k+1)=z_2(k)-Vst*dt;
+    x_2(k+1)=x_2(1)+R*sin(w*t_2(k));
+    R*w*sin(w*t_2(k))*dt;
 end
-    
-plot(x,z,'+')
+t_3=[0:dt:t_g];
+x_3=[0:dt:t_g];
+z_3=[0:dt:t_g];
+
+z_3(1)=z_2(end);
+x_3(1)=x_2(end);
+for k=1:length(t_3)
+    z_3(k+1)=z_3(k)-Vs*dt;
+    x_3(k+1)=x_3(k)-V*dt;
+end
+x=[x_1 x_2 x_3];
+z=[z_1 z_2 z_3];
+t=[t_1 t_2+t_1(end) t_3+(t_1(end)+t_2(end))];
+plot(x,z)
 xlabel('x (m)')
 ylabel('z (m)')
 

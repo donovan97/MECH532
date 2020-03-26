@@ -1,4 +1,3 @@
-
 function [X,x1,x2,x,v,t] = LFL()
 
 %Calculation of Landing Field Length
@@ -11,7 +10,7 @@ function [X,x1,x2,x,v,t] = LFL()
 % Outputs: LFL, distance during rotation, distance during ground run
 load param.mat
 
-
+g=parameters.g;
 m=parameters.Wto/parameters.g;
 S=parameters.L*(parameters.Co+parameters.Ct);
 V=sqrt(2*m*g/(parameters.rho*S*parameters.Cl));

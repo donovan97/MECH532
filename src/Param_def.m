@@ -47,7 +47,9 @@ parameters.dihedralw    = 0 ;           					% [rad]          Dihedral angle of 
 parameters.x            = linspace(0, parameters.L,1000);
 parameters.drag         = 15 ;           					% [N]            Total drag force on the glider
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
-parameters.clmax        = 1.1 ;                             %                clmax 2D 
+parameters.clmax        = 1.1 ;                             %                clmax 2D
+parameters.CLmax        = 0.99 ;                            %                CLmax 3D
+
 %Les paramètres avec un w correspondent aux paramètres de l'aile
 
 parameters.bw           = 2 ;                               % [m]            envergure

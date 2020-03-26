@@ -55,7 +55,8 @@ while 0 < v(end)
         x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
     end
 end
-clear figure
+
+figure(2)
 plot(t,v)
 ylabel('Speed (m/s)');
 xlabel('Time (s)');

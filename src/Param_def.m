@@ -2,9 +2,9 @@
 
 parameters.Wws     		= 7790 ;  							% [kg]           Weight of wing structure
 parameters.Wfus    		= 31160 ; 							% [kg]           Weight of the fuselage
-parameters.Wto     		= parameters.Wws +parameters.Wfus   % [kg]           Total aircraft weight
+parameters.Wto     		= parameters.Wws +parameters.Wfus;   % [kg]           Total aircraft weight
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
-parameters.mu           = 18*10E-6 ;                        % [Pa/s]         viscosité dynamique   
+parameters.mu           = 18E-6 ;                        % [Pa/s]         viscosité dynamique   
 parameters.e            = 0.87 ;                            %                coefficient d'Oswald   
 
 %Material properties of EPP foam
@@ -41,14 +41,17 @@ parameters.c            = 0.1;                              % [m]            Mea
 parameters.lambda  		= parameters.Ct/parameters.Co;    	% [-]            Taper ratio
 parameters.t       		= 0.12*parameters.Co;  				% [m]            Max thickness of NACA 2412
 parameters.h       		= 0.02*parameters.Co;      			% [m]            max camber of NACA 
-parameters.n       		= 1 ;       						% [-]            load factor
+parameters.n       		= 1.5 ;       						% [-]            load factor
 parameters.g       		= 9.81;     						% [m/s^2)        gravitational constant
 parameters.dihedralw    = 0 ;           					% [rad]          Dihedral angle of the wing
 parameters.x            = linspace(0, parameters.L,1000);
 parameters.drag         = 15 ;           					% [N]            Total drag force on the glider
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
 parameters.clmax        = 1.1 ;                             %                clmax 2D 
+parameters.Cd           = 0.036 ;                           %                Cd of the glider
+
 %Les paramètres avec un w correspondent aux paramètres de l'aile
+
 parameters.bw           = 2 ;                               % [m]            envergure
 parameters.Sw           = 0.2 ;                             % [m^2]          surface à l'air
 parameters.alphaw       = 2 ;                               % [degré]        angle d'incidence
@@ -60,16 +63,19 @@ parameters.f            =0.5 ;                              % [s-u]          coe
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %horizontal
-parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
+
 parameters.Cht          = 0.5 ;                             %                coefficient d'empennage horizontal
 parameters.tcht         = 0.15 ;                            %                épaisseur max    
 parameters.xcht         = 0.30 ;                            %                position de l'épaisseur max
 parameters.lht          = 1 ;                               % [m]            distance aile/empennage
 parameters.Dht          = 0 ;                               % [degré]        angle de dihèdre
 parameters.Sht          = 0.05  ;                           % [m^2]          (Horizontal) tailplane area
+parameters.Qt           = 1.04 ;                            %                coefficient d'interférence
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %verticale
+
+parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
 parameters.lvt          = 1 ;                               % [m]            distance aile/empennage
 parameters.tcvt         = 0.15 ;                            %                épaisseur max    
 parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max
@@ -78,6 +84,7 @@ parameters.Svt          = 0.025  ;                          % [m^2]          (Ve
 parameters.avt          = 3.5  ;                            % [-]            Fin lift curve slope
 
 %Les paramètres avec un f correspondent aux paramètres du fuselage 
+
 parameters.lf           = 2;                                % [m]            longueur du fuselage
 parameters.df           = 0.25;                             % [m]            diamètre du fuselage
 parameters.Sf           = 0.5;                              % [m^2]          surface à l'air fuselage  

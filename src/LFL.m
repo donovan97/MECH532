@@ -36,8 +36,7 @@ x=[0];
 for k=1:length(t1)-1
     x=[x x(end)+V*0.01];
 end
-length(t1)
-length(x)
+
 dt=0.01;
 
 
@@ -60,11 +59,11 @@ clear figure
 plot(t,v)
 ylabel('Speed (m/s)');
 xlabel('Time (s)');
-pause
+
 hold on
 yyaxis right
 ylabel('Distance(m)');
-plot(t,x)
+plot(t,x) 
 x2=x(end);
 X=x1+x2;
 end

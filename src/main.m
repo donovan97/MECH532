@@ -9,6 +9,6 @@ load param.mat
 [Hn_fixed, Hn_free] = LongitudinalStaticStability();
 [CnB_directional, CnB_lateral] = DirectionalLateralStaticStability();
 [V0y, V0x, M0y, M0x] = moment() ;
-[Cd0_w,Cd0_HT, Cd0_VT, Cd0_F] = Parasitedrag();
+[Cd0_w,Cd0_HT, Cd0_VT, Cd0_F, CD, f] = Parasitedrag();
 
 disp('try')

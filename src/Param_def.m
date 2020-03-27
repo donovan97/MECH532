@@ -2,7 +2,7 @@
 
 parameters.Wws     		= 0.5 ;  							% [kg]           Weight of wing structure
 parameters.Wfus    		= 1.5 ; 							% [kg]           Weight of the fuselage
-parameters.Wto     		= parameters.Wws +parameters.Wfus   % [kg]           Total aircraft weight
+parameters.Wto     		= parameters.Wws +parameters.Wfus;   % [kg]           Total aircraft weight
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
 parameters.mu           = 18E-6 ;                        % [Pa/s]         viscosité dynamique   
 parameters.e            = 0.87 ;                            %                coefficient d'Oswald   
@@ -28,6 +28,7 @@ parameters.b2           = -0.014 ;                          % [-]            Ele
 
 %Parameters for directional and lateral static stability
 
+parameters.Cd           =  0.036 ;                            % [-]            Drag coefficient (3D?)
 parameters.Cl           =  1.1 ;                            % [-]            Lift coefficient (3D?)
 parameters.Kn           =  0.003 ;                          % [-]            Wing-body interference factor, obtain manually from Pamadi P.271
 parameters.Krl          =  1.5 ;                            % [-]            Reynolds number factor, obtain manually from Pamadi P.272
@@ -45,7 +46,6 @@ parameters.h       		= 0.02*parameters.Co;      			% [m]            max camber o
 parameters.n       		= 1.3 ;       						% [-]            load factor
 parameters.g       		= 9.81;     						% [m/s^2)        gravitational constant
 parameters.dihedralw    = 0 ;           					% [rad]          Dihedral angle of the wing
-parameters.x            = linspace(0, parameters.L,1000);
 parameters.drag         = 15 ;           					% [N]            Total drag force on the glider
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
 parameters.clmax        = 1.1 ;                             %                clmax 2D
@@ -55,6 +55,7 @@ parameters.CLmax        = 0.99 ;                            %                CLm
 
 parameters.bw           = 2 ;                               % [m]            envergure
 parameters.L       		= 0.5*parameters.bw;                % [m]            Needed for load_forces and moment
+parameters.x            = linspace(0, parameters.L,1000);
 parameters.Sw           = 0.2 ;                             % [m^2]          surface à l'air
 parameters.alphaw       = 2 ;                               % [degré]        angle d'attaque
 parameters.tcw          = 0.087 ;                           %                épaisseur max    
@@ -87,5 +88,6 @@ parameters.lf           = 2;                                % [m]            lon
 parameters.df           = 0.25;                             % [m]            diamètre du fuselage
 parameters.Sf           = 0.5;                              % [m^2]          surface à l'air fuselage  
 parameters.Sprojf       = 0.5;                              % [m^2]          projected side area of fuselage 
+
 
 save('param.mat','parameters')

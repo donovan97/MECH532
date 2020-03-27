@@ -13,7 +13,7 @@ parameters.Sut          = 0.38 ;                            % [MPa]          Ult
 parameters.Suc          = 0.44 ;                            % [MPa]          Ultimate compressive strength of EPP foam
 
 %frottement avec la piste d'aterrisage
-parameters.f            =0.8 ;                              % [s-u]          coefficient de frottement avec la piste d'aterrissage
+parameters.f            = 0.8 ;                              % [s-u]          coefficient de frottement avec la piste d'aterrissage
 %Parameters for longitudinal static stability
 
 parameters.cg           = 0.75 ;                            % [m]            Centerline distance from the front tip of the aircraft to the center of gravity (obtain from CAD?)
@@ -36,7 +36,6 @@ parameters.lv           =  1 ;                              % [m]            Hor
 
 %General Parameters
 
-parameters.L       		= 30 ;    							% [m]            Length of one wing
 parameters.Co      		= 2.5 ;     						% [m]            Chord length at wing root
 parameters.Ct      		= 1.5 ;     						% [m]            Chord length at wingtip
 parameters.c            = 0.1;                              % [m]            Mean chord   
@@ -55,8 +54,9 @@ parameters.CLmax        = 0.99 ;                            %                CLm
 %Les paramètres avec un w correspondent aux paramètres de l'aile
 
 parameters.bw           = 2 ;                               % [m]            envergure
+parameters.L       		= 0.5*parameters.bw;                % [m]            Needed for load_forces and moment
 parameters.Sw           = 0.2 ;                             % [m^2]          surface à l'air
-parameters.alphaw       = 2 ;                               % [degré]        angle d'incidence
+parameters.alphaw       = 2 ;                               % [degré]        angle d'attaque
 parameters.tcw          = 0.087 ;                           %                épaisseur max    
 parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   
 parameters.Dw           = 5 ;                               % [degré]        angle de dihèdre
@@ -65,10 +65,9 @@ parameters.Q            = 1 ;                               %                coe
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %horizontal
 
-parameters.Cht          = 0.5 ;                             %                coefficient d'empennage horizontal
+parameters.Cht          = 0.1 ;                             %                coefficient d'empennage horizontal
 parameters.tcht         = 0.15 ;                            %                épaisseur max    
 parameters.xcht         = 0.30 ;                            %                position de l'épaisseur max
-parameters.lht          = 1 ;                               % [m]            distance aile/empennage
 parameters.Dht          = 0 ;                               % [degré]        angle de dihèdre
 parameters.Sht          = 0.05  ;                           % [m^2]          (Horizontal) tailplane area
 parameters.Qt           = 1.04 ;                            %                coefficient d'interférence
@@ -77,7 +76,6 @@ parameters.Qt           = 1.04 ;                            %                coe
 %verticale
 
 parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
-parameters.lvt          = 1 ;                               % [m]            distance aile/empennage
 parameters.tcvt         = 0.15 ;                            %                épaisseur max    
 parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max
 parameters.Dvt          = 0 ;                               % [degré]        angle de dihèdre

@@ -62,4 +62,5 @@ figure(1)
 plot(x,z)
 xlabel('x (m)')
 ylabel('z (m)')
+end
 

@@ -1,7 +1,7 @@
 %Constants
 
-parameters.Wws     		= 7790 ;  							% [kg]           Weight of wing structure
-parameters.Wfus    		= 31160 ; 							% [kg]           Weight of the fuselage
+parameters.Wws     		= 0.5 ;  							% [kg]           Weight of wing structure
+parameters.Wfus    		= 1.5 ; 							% [kg]           Weight of the fuselage
 parameters.Wto     		= parameters.Wws +parameters.Wfus   % [kg]           Total aircraft weight
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
 parameters.mu           = 18E-6 ;                        % [Pa/s]         viscosité dynamique   
@@ -12,6 +12,8 @@ parameters.e            = 0.87 ;                            %                coe
 parameters.Sut          = 0.38 ;                            % [MPa]          Ultimate tensile strength of EPP foam
 parameters.Suc          = 0.44 ;                            % [MPa]          Ultimate compressive strength of EPP foam
 
+%frottement avec la piste d'aterrisage
+parameters.f            =0.8 ;                              % [s-u]          coefficient de frottement avec la piste d'aterrissage
 %Parameters for longitudinal static stability
 
 parameters.cg           = 0.75 ;                            % [m]            Centerline distance from the front tip of the aircraft to the center of gravity (obtain from CAD?)
@@ -41,7 +43,7 @@ parameters.c            = 0.1;                              % [m]            Mea
 parameters.lambda  		= parameters.Ct/parameters.Co;    	% [-]            Taper ratio
 parameters.t       		= 0.12*parameters.Co;  				% [m]            Max thickness of NACA 2412
 parameters.h       		= 0.02*parameters.Co;      			% [m]            max camber of NACA 
-parameters.n       		= 1 ;       						% [-]            load factor
+parameters.n       		= 1.3 ;       						% [-]            load factor
 parameters.g       		= 9.81;     						% [m/s^2)        gravitational constant
 parameters.dihedralw    = 0 ;           					% [rad]          Dihedral angle of the wing
 parameters.x            = linspace(0, parameters.L,1000);

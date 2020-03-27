@@ -25,7 +25,7 @@ load param.mat
 gamma = parameters.dihedralw * (pi/180);
 alpha = parameters.alphaw * (pi/180);
 
-CnB_dir_dihedral = -0.075*gamma*parameters.Cl;
+CnB_dir_dihedral = -0.075*gamma*parameters.CLmax;
 CnB_dir_fuselage = -parameters.Kn*parameters.Krl*(parameters.Sprojf/parameters.Sw)*(parameters.lf/parameters.bw);
 CnB_dir_tail = (parameters.Svt*parameters.avt)/(parameters.Sw*parameters.bw);
 CnB_directional = CnB_dir_dihedral + CnB_dir_fuselage + CnB_dir_tail;

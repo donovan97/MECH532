@@ -1,10 +1,10 @@
-function [Cd0,k] = Parasitedrag()
+function [Cd0,k] = Parasitedrag(CL)
 
 load param.mat
 
 
     % [m/s]
-Vreynolds=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*parameters.CLmax));
+Vreynolds=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*CL));
 Re_W = parameters.rho*Vreynolds*parameters.c/parameters.mu;
 
 
@@ -82,11 +82,11 @@ Atop = pi*parameters.df^2;
 Swetf = pi*(Aside+Atop)/2;
 Cd0_F = C_f*FFf*parameters.Q*Swetf/parameters.Sw;
 
-k = 1/(pi*Aw*parameters.e);
+k = 2*1/(pi*Aw*parameters.e);
 
-Cd0 =Cd0_w + Cd0_HT + Cd0_VT + Cd0_F;
-CD = Cd0_w + Cd0_HT + Cd0_VT + Cd0_F + k*parameters.CLmax*parameters.CLmax;
-f = parameters.CLmax/CD;
+Cd0 =(1/12)*(Cd0_w + Cd0_HT + Cd0_VT + Cd0_F);
+CD = Cd0_w + Cd0_HT + Cd0_VT + Cd0_F + k*CL*CL;
+f = CL/CD;
 
 
 

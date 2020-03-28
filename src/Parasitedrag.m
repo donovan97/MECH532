@@ -1,13 +1,18 @@
-function [Cd0_w,Cd0_HT, Cd0_VT, Cd0_F, CD, f] = Parasitedrag()
+function [Cd0,k] = Parasitedrag()
 
 load param.mat
 
 
-Re_W = parameters.rho*parameters.u*parameters.c/parameters.mu;
+    % [m/s]
+Vreynolds=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*parameters.CLmax));
+Re_W = parameters.rho*Vreynolds*parameters.c/parameters.mu;
+
+
+
 
 % Analyse XFLR
 
-CLmax = 0.9*parameters.clmax;
+% CLmax = 0.9*parameters.clmax
 
 % Analyse théorique  
 
@@ -30,7 +35,7 @@ a3d = a0/(sqrt(1-M^2)+a0/(pi*parameters.e*Aw)); % a0 en 3d
 alphal0 = alphap(indice);
 
 %Final CL 
-CL = a3d*(parameters.alphaw - alphal0);
+%CL = a3d*(parameters.alphaw - alphal0)
 
 %a0 slope to ensure the good approximation
     
@@ -68,7 +73,7 @@ Cd0_VT = parameters.Cvt*FFvt*parameters.Qt*Swetvt/parameters.Sw;
 
 % Fuselage
 
-Re_f = parameters.rho*parameters.u*parameters.lf/parameters.mu;
+Re_f = parameters.rho*Vreynolds*parameters.lf/parameters.mu;
 C_f = 1.328/sqrt(Re_f) ;
 
 FFf = 1+(60/(parameters.lf/parameters.df)^3)+(parameters.lf/parameters.df)/400;
@@ -79,9 +84,13 @@ Cd0_F = C_f*FFf*parameters.Q*Swetf/parameters.Sw;
 
 k = 1/(pi*Aw*parameters.e);
 
+Cd0 =Cd0_w + Cd0_HT + Cd0_VT + Cd0_F;
 CD = Cd0_w + Cd0_HT + Cd0_VT + Cd0_F + k*parameters.CLmax*parameters.CLmax;
-
 f = parameters.CLmax/CD;
+
+
+
+
 
 end
 

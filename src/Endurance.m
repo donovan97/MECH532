@@ -60,7 +60,8 @@ t=[t_1 t_2+t_1(end) t_3+(t_1(end)+t_2(end))];
 
 figure(1)
 plot(x,z)
+title("Mission profil")
 xlabel('x (m)')
-ylabel('z (m)')
+ylabel('h (m)')
 end
 

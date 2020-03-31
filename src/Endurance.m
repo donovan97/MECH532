@@ -58,7 +58,7 @@ x=[x_1 x_2 x_3];
 z=[z_1 z_2 z_3];
 t=[t_1 t_2+t_1(end) t_3+(t_1(end)+t_2(end))];
 
-figure(1)
+figure(3)
 plot(x,z)
 title("Mission profil")
 xlabel('x (m)')

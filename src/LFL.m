@@ -13,8 +13,8 @@ load param.mat
 g=parameters.g;
 m=parameters.Wto;
 S=parameters.Sw;
-V=sqrt(2*m*g/(parameters.rho*S*parameters.CLmax));
-gamma=atan(parameters.Cd/parameters.CLmax);
+V=sqrt(2*m*g/(parameters.rho*S*parameters.Cl));
+gamma=atan(parameters.Cd/parameters.Cl);
 x1=sin(gamma)*(V^2)/(parameters.n-1);
 % x2=(V^2)/(2*parameters.f*g);
 % 

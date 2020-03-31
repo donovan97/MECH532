@@ -9,9 +9,9 @@ cl=linspace(0,CLMAX,n);
 cd=linspace(0,CLMAX,n);
 cl32_cd=linspace(0,CLMAX,n);
 
-
+[Cd0,k] = Parasitedrag();
 for i=1:length(cl)
-    [Cd0,k] = Parasitedrag(cl(i));
+    
     cl(i);
     cd(i)=(Cd0+k*(cl(i)^2));
     

@@ -35,6 +35,7 @@ x=[0];
 
 for k=1:length(t1)-1
     x=[x x(end)+V*0.01];
+    indice=k;
 end
 
 dt=0.01;
@@ -55,7 +56,7 @@ while 0 < v(end)
         x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
     end
 end
-
+x(end)
 figure(2)
 plot(t,v)
 ylabel('Speed (m/s)');
@@ -65,7 +66,7 @@ hold on
 yyaxis right
 ylabel('Distance(m)');
 plot(t,x) 
-x2=x(end);
+x2=x(end)-x(indice);
 X=x1+x2;
 end
 

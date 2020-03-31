@@ -1,8 +1,10 @@
 clc
 clear all
+close all
+
 Param_def
 
-[CLmd,CDmd] = Derivation_CL_mp()
+[CLmd,CDmd, Cd0, k] = Derivation_CL_mp();
 [E] = Endurance();
 [X,x1,x2,x,v,t] = LFL();
 [Hn_fixed, Hn_free] = LongitudinalStaticStability();
@@ -11,7 +13,3 @@ Param_def
 
 
 load param.mat
-
-
-    % [m/s]
-V=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*parameters.CLmax));

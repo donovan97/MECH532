@@ -1,18 +1,10 @@
-function [Cd0,k] = Parasitedrag()
+function [Cd0,k] = Parasitedrag(Cl)
 
 load param.mat
-Cl=parameters.Cl;
-%Cl=parameters.Cl;
-    % [m/s]
 Vreynolds=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*Cl));
 Re_W = parameters.rho*Vreynolds*parameters.c/parameters.mu;
 
-
-
-
 % Analyse XFLR
-
-% CLmax = 0.9*parameters.clmax
 
 % Analyse théorique  
 

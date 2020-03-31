@@ -25,8 +25,8 @@ hold on
 figure(3)
 plot(cl,cl32_cd)
 [cl32_cd_max,index]=max(cl32_cd)
-Clmd=cl(index)
-CDmd=cd(index)  
+CLmd=cl(index);
+CDmd=cd(index)  ;
     
 
 

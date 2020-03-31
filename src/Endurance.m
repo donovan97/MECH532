@@ -6,12 +6,12 @@ m=parameters.Wto;
 S=parameters.Sw;
 h=200;  %m
 
-Vt=sqrt(2*parameters.n*m*parameters.g/(parameters.rho*S*parameters.CLmax));
-V=sqrt(2*m*parameters.g/(parameters.rho*S*parameters.CLmax));
-Vst=sqrt(2*m*parameters.g/(parameters.rho*S))*(parameters.n/parameters.CLmax)^(3/2)*parameters.Cd ;
+Vt=sqrt(2*parameters.n*m*parameters.g/(parameters.rho*S*parameters.Cl));
+V=sqrt(2*m*parameters.g/(parameters.rho*S*parameters.Cl));
+Vst=sqrt(2*m*parameters.g/(parameters.rho*S))*(parameters.n/parameters.Cl)^(3/2)*parameters.Cd ;
 Vs=parameters.n^(-3/2)*Vst;
 R=(Vt^2)/(parameters.g*((parameters.n^2)-1));
-w=sqrt(2*parameters.n*m*parameters.g/(parameters.rho*S*parameters.CLmax))/R;
+w=sqrt(2*parameters.n*m*parameters.g/(parameters.rho*S*parameters.Cl))/R;
 t_t=pi/w;
 h_t=t_t*Vst;
 h_g=100-h_t/2;

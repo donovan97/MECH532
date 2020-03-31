@@ -4,7 +4,7 @@ function [CLmd,CDmd] = Derivation_CL_mp()
 load param.mat
 V0=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*parameters.Cl));
 n=1000;
-CLMAX=parameters.Cl
+CLMAX=parameters.CLmax;
 cl=linspace(0,CLMAX,n);
 cd=linspace(0,CLMAX,n);
 cl32_cd=linspace(0,CLMAX,n);

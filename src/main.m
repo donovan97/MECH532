@@ -1,9 +1,8 @@
 clc
 clear all
 Param_def
-V0=parameters.u
-[Vmp, CL_mp] = Parasitedrag()
-V1=parameters.u
+[CD0,k] = Parasitedrag()
+
 [E] = Endurance();
 [X,x1,x2,x,v,t] = LFL();
 [Hn_fixed, Hn_free] = LongitudinalStaticStability();

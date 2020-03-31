@@ -2,9 +2,9 @@ function [CLmd] = Derivation_CL_mp()
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 load param.mat
-V0=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*parameters.CLmax));
+V0=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*parameters.Cl));
 n=1000;
-CLMAX=parameters.CLmax
+CLMAX=parameters.Cl
 cl=linspace(0,CLMAX,n);
 cd=linspace(0,CLMAX,n);
 cl32_cd=linspace(0,CLMAX,n);
@@ -26,7 +26,7 @@ figure(3)
 plot(cl,cl32_cd)
 [cl32_cd_max,index]=max(cl32_cd)
 Clmd=cl(index)
-  
+CDmd=cd(index)  
     
 
 

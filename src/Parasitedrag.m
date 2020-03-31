@@ -1,7 +1,7 @@
-function [Cd0,k] = Parasitedrag(CL)
+function [Cd0,k] = Parasitedrag()
 
 load param.mat
-Cl=CL;
+Cl=parameters.Cl;
 %Cl=parameters.Cl;
     % [m/s]
 Vreynolds=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*Cl));

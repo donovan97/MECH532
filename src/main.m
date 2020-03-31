@@ -1,8 +1,8 @@
 clc
 clear all
 Param_def
-[CD0,k] = Parasitedrag()
 
+[CLmd,CDmd] = Derivation_CL_mp()
 [E] = Endurance();
 [X,x1,x2,x,v,t] = LFL();
 [Hn_fixed, Hn_free] = LongitudinalStaticStability();

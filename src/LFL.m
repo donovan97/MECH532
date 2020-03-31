@@ -62,14 +62,15 @@ while 0 < v(end)
     end
 end
 x(end)
-figure(2)
+figure(4)
 plot(t,v)
+title('Landing speed and distance')
 ylabel('Speed (m/s)');
 xlabel('Time (s)');
 
 hold on
 yyaxis right
-ylabel('Distance(m)');
+ylabel('Distance (m)');
 plot(t,x) 
 x2=x(end)-x(indice);
 X=x1+x2;

@@ -1,4 +1,4 @@
-function [CLmd] = Derivation_CL_mp()
+function [CLmd,CDmd] = Derivation_CL_mp()
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 load param.mat

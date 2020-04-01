@@ -1,6 +1,7 @@
 function [Cd0,k] = Parasitedrag(Cl)
 
 load param.mat
+
 Vreynolds=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*Cl));
 Re_W = parameters.rho*Vreynolds*parameters.c/parameters.mu;
 
@@ -8,7 +9,7 @@ Re_W = parameters.rho*Vreynolds*parameters.c/parameters.mu;
 
 % Analyse théorique  
 
-M = 0.02; % Mach number 
+M = Vreynolds/(1.4*287*287.75); % Mach number 
 Aw = parameters.bw*parameters.bw/parameters.Sw; % Aspect ratio
 alphap = [-5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8 9 12];
 Clp = [-4.003 -0.3205 -0.2218 -0.1218 -0.0384 0.0413 0.1256 0.3366 0.4946 0.6596 0.8006 0.9025 0.9854 1.0499 1.0991 0.9141];

@@ -5,7 +5,7 @@ parameters.Wfus    		= 0.5 ; 							% [kg]           Weight of the fuselage
 parameters.Wto     		= parameters.Wws +parameters.Wfus;  % [kg]           Total aircraft weight
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
 parameters.mu           = 18E-6 ;                           % [Pa/s]         viscosité dynamique   
-parameters.e            = 0.87 ;                            %                coefficient d'Oswald   
+parameters.e            = 0.85 ;                            %                coefficient d'Oswald   
 
 %Material properties of EPP foam
 
@@ -60,28 +60,28 @@ parameters.Sw           = 0.18 ;                            % [m^2]          sur
 parameters.alphaw       = 2 ;                               % [degré]        angle d'attaque
 parameters.tcw          = 0.087 ;                           %                épaisseur max    
 parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   
-parameters.Dw           = 5 ;                               % [degré]        angle de dihèdre
+parameters.Dw           = 5 *(pi/180);                      % [radian]        angle de dihèdre
 parameters.Q            = 1 ;                               %                coefficient d'interférence
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %horizontal
 
-parameters.Cht          = 0.1 ;                             %                coefficient d'empennage horizontal
 parameters.tcht         = 0.15 ;                            %                épaisseur max    
 parameters.xcht         = 0.30 ;                            %                position de l'épaisseur max
 parameters.Dht          = 0 ;                               % [degré]        angle de dihèdre
 parameters.Sht          = 0.03  ;                           % [m^2]          (Horizontal) tailplane area
 parameters.Qt           = 1.04 ;                            %                coefficient d'interférence
+parameters.Cht          = (parameters.Sht*parameters.lt)/(parameters.c*parameters.Sw)   ;                             %                coefficient d'empennage horizontal
 
 %Les paramètres avec un vt correspondent aux paramètres de l'empennage
 %verticale
 
-parameters.Cvt          = 0.02; %ou 0.04                    %                coefficient d'empennage vertical
 parameters.tcvt         = 0.15 ;                            %                épaisseur max    
 parameters.xcvt         = 0.30 ;                            %                position de l'épaisseur max
 parameters.Dvt          = 0 ;                               % [degré]        angle de dihèdre
 parameters.Svt          = 0.01  ;                           % [m^2]          (Vertical) fin area
 parameters.avt          = 3.5  ;                            % [-]            Fin lift curve slope
+parameters.Cvt          = (parameters.Svt*parameters.lt)/(parameters.bw*parameters.Sw) ;                   %                coefficient d'empennage vertical
 
 %Les paramètres avec un f correspondent aux paramètres du fuselage 
 parameters.lf           = 1.4;                              % [m]            longueur du fuselage

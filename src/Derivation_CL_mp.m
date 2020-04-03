@@ -37,6 +37,8 @@ CDmd=cd(index);
 
 parameters.Cl = CLmd;
 parameters.Cd = CDmd;
+parameters.Cd0=Cd0;
+parameters.k=k;
 save('param.mat','parameters')
 
 

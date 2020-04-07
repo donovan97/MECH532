@@ -1,4 +1,4 @@
-function [E] = Endurance()
+function [E] = Endurance(disp)
 % Calcul l'endurance en s durant la mission
 %   htypothèse: rho=rho0= 1.225 kg/m, altitude de départ=200m
 load param.mat
@@ -20,7 +20,7 @@ t_g=h_g/Vs;
 
 E=t_t+2*t_g;
 
-dt=0.01;
+dt=0.1;
 %%Plot trajectoire
 t_1=[0:dt:t_g];
 x_1=[0:dt:t_g];
@@ -58,10 +58,12 @@ x=[x_1 x_2 x_3];
 z=[z_1 z_2 z_3];
 t=[t_1 t_2+t_1(end) t_3+(t_1(end)+t_2(end))];
 
-figure(3)
-plot(x,z)
-title("Mission profil")
-xlabel('x (m)')
-ylabel('h (m)')
+if disp==1
+    figure(3)
+    plot(x,z)
+    title("Mission profil")
+    xlabel('x (m)')
+    ylabel('h (m)')
+end
 end
 

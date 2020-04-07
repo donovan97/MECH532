@@ -1,4 +1,4 @@
-function [CnB_directional, CnB_lateral] = DirectionalLateralStaticStability()
+function [CnB_directional, CnB_lateral] = DirectionalLateralStaticStability(plot)
 
 load param.mat 
 
@@ -30,21 +30,23 @@ CnB_dir_fuselage = -parameters.Kn*parameters.Krl*(parameters.Sprojf/parameters.S
 CnB_dir_tail = (parameters.Svt*parameters.avt)/(parameters.Sw*parameters.bw);
 CnB_directional = CnB_dir_dihedral + CnB_dir_fuselage + CnB_dir_tail;
 
-CnB_lat_dihedral = -(parameters.a*gamma)/4
+CnB_lat_dihedral = -(parameters.a*gamma)/4;
 CnB_lat_tail = ((parameters.Svt*parameters.avt)/parameters.Sw)*((parameters.zv*cos(alpha) - parameters.lv*sin(alpha))/parameters.bw);
 CnB_lateral = CnB_lat_dihedral + CnB_lat_tail;
 
+if plot==1
+    if (CnB_directional <= 0)
+        disp("Directional stability condition not met")
+    else
+        disp("Directional stability condition met");
+    end
 
-if (CnB_directional <= 0)
-    disp("Directional stability condition not met")
-else
-    disp("Directional stability condition met");
+    if (CnB_lateral >= 0)
+        disp("Lateral stability condition not met")
+    else
+        disp("Lateral stability condition met")
+    end
 end
-
-if (CnB_lateral >= 0)
-    disp("Lateral stability condition not met")
-else
-    disp("Lateral stability condition met")
 end
 
 

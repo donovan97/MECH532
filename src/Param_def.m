@@ -1,7 +1,7 @@
 %Constants
 
 parameters.Wws     		= 0.00216 ;  					    % [kg]           Weight of wing structure
-parameters.Wfus    		= 0.5 ; 							% [kg]           Weight of the fuselage
+parameters.Wfus    		= 0.19+1.5; 						% [kg]           Weight of the fuselage
 parameters.Wto     		= parameters.Wws +parameters.Wfus;  % [kg]           Total aircraft weight
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
 parameters.mu           = 18E-6 ;                           % [Pa/s]         viscosité dynamique   
@@ -54,10 +54,10 @@ parameters.CLmax        = 0.99 ;                            %                CLm
 
 %Les paramètres avec un w correspondent aux paramètres de l'aile
 
-parameters.bw           = 1.8 ;                             % [m]            envergure/span
+parameters.bw           = 1.8;                             % [m]            envergure/span
 parameters.L       		= 0.5*parameters.bw;                % [m]            Needed for load_forces and moment
 parameters.x            = linspace(0, parameters.L,1000);
-parameters.Sw           = 0.18 ;                            % [m^2]          surface à l'air
+parameters.Sw           = parameters.bw*parameters.Ct;      % [m^2]          surface à l'air
 parameters.alphaw       = 2 ;                               % [degré]        angle d'attaque
 parameters.tcw          = 0.087 ;                           %                épaisseur max    
 parameters.xcw          = 0.302 ;                           %                position de l'épaisseur max   

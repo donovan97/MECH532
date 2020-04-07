@@ -1,4 +1,4 @@
-function [V0y, V0x, M0y, M0x] = moment() 
+function [V0y, V0x, M0y, M0x, margin_tensile, margin_compressive] = moment() 
 
     load param.mat  
     [q,qd]=load_forces(parameters.Wto,parameters.Wws,parameters.n,parameters.L,parameters.Co,parameters.Ct);
@@ -35,7 +35,8 @@ function [V0y, V0x, M0y, M0x] = moment()
         I = ((parameters.Co/2)*(parameters.t)^3)/12;
         
         sigma = (M0y*(parameters.t/2))/I; %[Pa]
-        
+        margin_tensile = sigma - (parameters.Sut*1E06)
+        margin_compressive = sigma - (parameters.Suc*1E06)
         %assuming no torsion on the wing, tau = 0
         %Stress caused by M0x is 0 at its neutral axis, which coincides with critical point due to M0y
         %Therefore, sigma_1 = sigma and sigma_3 = 0;

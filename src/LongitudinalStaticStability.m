@@ -1,4 +1,4 @@
-function [Hn_fixed, Hn_free] = LongitudinalStaticStability()
+function [Hn_fixed, Hn_free] = LongitudinalStaticStability(var)
 
 load param.mat  
 
@@ -33,19 +33,22 @@ h = parameters.h0 - (aerodynamicCenterDistance - parameters.cg)/mac; %distance o
 a1_bar = parameters.a1 - (parameters.a2*parameters.b1)/parameters.b2; %tailplane lift curve slope with free elevator
 
 
-Hn_fixed = (parameters.h0 - h) + Vt*(parameters.a1/parameters.a)*(1-downwash)
-Hn_free = (parameters.h0 - h) + Vt*(a1_bar/parameters.a)*(1-downwash)
+Hn_fixed = (parameters.h0 - h) + Vt*(parameters.a1/parameters.a)*(1-downwash);
+Hn_free = (parameters.h0 - h) + Vt*(a1_bar/parameters.a)*(1-downwash);
 
-if (Hn_fixed <= 0)
-    disp("Longitudinal stick-fixed stability condition not met")
-else
-    disp("Longitudinal stick-fixed stability condition met");
+if var==1
+    if (Hn_fixed <= 0)
+        disp("Longitudinal stick-fixed stability condition not met")
+    else
+        disp("Longitudinal stick-fixed stability condition met");
+    end
+    
+    if (Hn_free <= 0)
+        disp("Longitudinal stick-free stability condition not met")
+    else
+        disp("Longitudinal stick-free stability condition met")
+    end
 end
-
-if (Hn_free <= 0)
-    disp("Longitudinal stick-free stability condition not met")
-else
-    disp("Longitudinal stick-free stability condition met")
 end
 
 

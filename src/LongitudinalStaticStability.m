@@ -1,6 +1,6 @@
 function [Hn_fixed, Hn_free] = LongitudinalStaticStability(var)
 
-load param.mat  
+global parameters
 
 %Outputs: 
 %Hn cg margin stick fixed, Hn = -dCm/dCl, therefore Hn > 0 for stability

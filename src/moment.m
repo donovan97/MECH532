@@ -1,6 +1,6 @@
-function [V0y, V0x, M0y, M0x, margin_tensile, margin_compressive] = moment() 
+function [V0y, V0x, M0y, M0x, margin_tensile, margin_compressive,validation] = moment(plot) 
 
-    load param.mat  
+    global parameters
     [q,qd]=load_forces(parameters.Wto,parameters.Wws,parameters.n,parameters.L,parameters.Co,parameters.Ct);
     
      %Creating an x domain of the wing
@@ -21,12 +21,12 @@ function [V0y, V0x, M0y, M0x, margin_tensile, margin_compressive] = moment()
         centroid_d = trapz(x,qd_centroid)/trapz(x,qd);
 
         %V0 magnitude
-        V0y = Fq_mag 
-        V0x = Fd_mag
+        V0y = Fq_mag ;
+        V0x = Fd_mag;
 
         %M0 magnitude
-        M0y = centroid*Fq_mag
-        M0x = centroid_d*Fd_mag
+        M0y = centroid*Fq_mag;
+        M0x = centroid_d*Fd_mag;
         
         %M0y will always be bigger than M0x, therefore critical point uses M0y to compute stresses
         
@@ -35,16 +35,26 @@ function [V0y, V0x, M0y, M0x, margin_tensile, margin_compressive] = moment()
         I = ((parameters.Co/2)*(parameters.t)^3)/12;
         
         sigma = (M0y*(parameters.t/2))/I; %[Pa]
-        margin_tensile = sigma - (parameters.Sut*1E06)
-        margin_compressive = sigma - (parameters.Suc*1E06)
+        margin_tensile = sigma - (parameters.Sut*1E06);
+        margin_compressive = sigma - (parameters.Suc*1E06);
         %assuming no torsion on the wing, tau = 0
         %Stress caused by M0x is 0 at its neutral axis, which coincides with critical point due to M0y
         %Therefore, sigma_1 = sigma and sigma_3 = 0;
-        
-        if (sigma < (parameters.Sut*1E06) && sigma < (parameters.Suc*1E06))
-            disp("Aircraft is structurally sound");
-        else
-            disp("Aircraft is not structurally sound");
+        if plot==1
+            if (sigma < (parameters.Sut*1E06) && sigma < (parameters.Suc*1E06))
+                disp("Aircraft is structurally sound");
+                validation=0;
+            else
+                disp("Aircraft is not structurally sound");
+                validation=1;
+            end
         end
-        
+        if plot==0
+            if (sigma < (parameters.Sut*1E06) && sigma < (parameters.Suc*1E06))
+                validation=0;
+            else
+                validation=1;
+            end
+        end
 end
+        

@@ -1,17 +1,17 @@
 function [CLmd,CDmd, Cd0, k] = Derivation_CL_mp(disp)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-load param.mat
-%V0=sqrt(2*parameters.Wto*parameters.g/(parameters.rho*parameters.Sw*parameters.CLmax));
-n=50;
+global parameters
+
+iter=100;
 CLMAX=parameters.CLmax;
-cl=linspace(0,CLMAX,n);
-cd=linspace(0,CLMAX,n);
-cl32_cd=linspace(0,CLMAX,n);
+cl=linspace(0,CLMAX,iter);
+cd=linspace(0,CLMAX,iter);
+cl32_cd=linspace(0,CLMAX,iter);
 
 
 for i=1:length(cl)  
-    [Cd0,k] = Parasitedrag(cl(i));
+    [Cd0,k]=Parasitedrag(cl(i));
     cd(i)=(Cd0+k*(cl(i)^2));
     cl32_cd(i)=cl(i)^(3/2)/cd(i);
 end
@@ -40,7 +40,7 @@ parameters.Cl = CLmd;
 parameters.Cd = CDmd;
 parameters.Cd0=Cd0;
 parameters.k=k;
-save('param.mat','parameters')
+
 
 
 

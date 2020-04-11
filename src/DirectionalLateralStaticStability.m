@@ -1,6 +1,6 @@
 function [CnB_directional, CnB_lateral] = DirectionalLateralStaticStability(plot)
 
-load param.mat 
+global parameters 
 
 %Outputs: 
 %CnB_directional derivative of yawing moment coefficient wrt sideslip angle, CnB_directional > 0 for directional stability

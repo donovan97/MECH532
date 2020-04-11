@@ -1,6 +1,6 @@
 function [q,qd] = load_forces(Wto,Wws,n,L,Co,Ct)
 %     parameters ; 
-    load param.mat  
+    global parameters 
     x = linspace(0, L,1000); 
     
     %Lift load

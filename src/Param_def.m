@@ -1,5 +1,5 @@
 %Constants
-
+parameters.test         =0;
 parameters.Wws     		= 0.00216 ;  					    % [kg]           Weight of wing structure
 parameters.Wfus    		= 0.19+1.5; 						% [kg]           Weight of the fuselage
 parameters.Wto     		= parameters.Wws +parameters.Wfus;  % [kg]           Total aircraft weight
@@ -37,8 +37,8 @@ parameters.lv           =  0.85 ;                           % [m]            Hor
 
 %General Parameters
 
-parameters.Co      		= 0.1 ;     						% [m]            Chord length at wing root
-parameters.Ct      		= 0.1 ;     						% [m]            Chord length at wingtip
+parameters.Co      		= 0.2 ;     						% [m]            Chord length at wing root
+parameters.Ct      		= 0.2;     						% [m]            Chord length at wingtip
 parameters.c            = (parameters.Co+parameters.Ct)/2;  % [m]            Mean chord   
 parameters.lambda  		= parameters.Ct/parameters.Co;    	% [-]            Taper ratio
 parameters.t       		= 0.12*parameters.Co;  				% [m]            Max thickness of MH32
@@ -51,10 +51,14 @@ parameters.drag         = 15 ;           					% [N]            Total drag force 
 parameters.u            = 8 ;                               % [m/s]          Speed of glider   
 parameters.clmax        = 1.1 ;                             %                clmax 2D
 parameters.CLmax        = 0.99 ;                            %                CLmax 3D
+parameters.Cl           = 0.99;
+parameters.Cd           = 0;
+parameters.Cd0          =0.5;
+parameters.k            =0.5;
 
 %Les paramètres avec un w correspondent aux paramètres de l'aile
 
-parameters.bw           = 1.8;                             % [m]            envergure/span
+parameters.bw           = 2;                             % [m]            envergure/span
 parameters.L       		= 0.5*parameters.bw;                % [m]            Needed for load_forces and moment
 parameters.x            = linspace(0, parameters.L,1000);
 parameters.Sw           = parameters.bw*parameters.Ct;      % [m^2]          surface à l'air

@@ -8,7 +8,7 @@ function [X] = LFL(disp)
 % Inputs: n=load factor, V=Vglide (m/s), parameters.f=solid friction coefficient, gamma=
 % glide angle (degre)
 % Outputs: LFL, distance during rotation, distance during ground run
-load param.mat
+global parameters
 
 g=parameters.g;
 m=parameters.Wto;
@@ -231,59 +231,111 @@ if disp==1
         ylabel('Distance (m)');
         plot(t,x)
         var=1;
+        
     end
+    X=x(end);
 end
-%% Case 5: Approach CLmax, Flare before the runway + Ground Run CL=0
-var=0;
-while var==0
-    
-    Cl=parameters.CLmax;
-    Cd=parameters.Cd0 + parameters.k*Cl*Cl;
-    
-    
-    V=sqrt(2*m*g/(rho*S*Cl));
-    gamma=atan(Cd/Cl);
-    x1=sin(gamma)*(V^2)/(parameters.n-1);
-    
-    T1=x1/V;
-    t1=[0:0.01:T1];
-    v=[V];
-    t=[0];
-    x=[0];
-       
-    dt=0.01;
-    
-    Cl=0;
-    Cd=parameters.Cd0 + parameters.k*Cl*Cl;
-    while 0 < v(end)
-        test_frottement=g-Cl*0.5*rho*S*(v(end)^2)/m;
-        if test_frottement <0
-            dv=-dt*0.5*rho*S*Cd*(v(end)^2)/m;
-            v=[v dv+v(end)];
-            t=[t t(end)+dt];
-            x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
-        else
-            dv=(dt*(0.5*rho*S*(parameters.f*Cl-Cd)*(v(end)^2)/m)-parameters.f*g*dt);
-            v=[v dv+v(end)];
-            t=[t t(end)+dt];
-            x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
-        end
-    end
-    
-    if disp==1
-        figure(8)
-        plot(t,v)
-        title('Case 5: Approach CLmax, Flare before the runway + Ground Run CL=0')
-        ylabel('Speed (m/s)');
-        xlabel('Time (s)');
+% %% Case 5: Approach CLmax, Flare before the runway + Ground Run CL=0
+% var=0;
+% while var==0
+%     
+%     Cl=parameters.CLmax;
+%     Cd=parameters.Cd0 + parameters.k*Cl*Cl;
+%     
+%     
+%     V=sqrt(2*m*g/(rho*S*Cl));
+%     gamma=atan(Cd/Cl);
+%     x1=sin(gamma)*(V^2)/(parameters.n-1);
+%     
+%     T1=x1/V;
+%     t1=[0:0.01:T1];
+%     v=[V];
+%     t=[0];
+%     x=[0];
+%        
+%     dt=0.01;
+%     
+%     Cl=0;
+%     Cd=parameters.Cd0 + parameters.k*Cl*Cl;
+%     while 0 < v(end)
+%         test_frottement=g-Cl*0.5*rho*S*(v(end)^2)/m;
+%         if test_frottement <0
+%             dv=-dt*0.5*rho*S*Cd*(v(end)^2)/m;
+%             v=[v dv+v(end)];
+%             t=[t t(end)+dt];
+%             x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
+%         else
+%             dv=(dt*(0.5*rho*S*(parameters.f*Cl-Cd)*(v(end)^2)/m)-parameters.f*g*dt);
+%             v=[v dv+v(end)];
+%             t=[t t(end)+dt];
+%             x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
+%         end
+%     end
+%     
+%     if disp==1
+%         figure(8)
+%         plot(t,v)
+%         title('Case 5: Approach CLmax, Flare before the runway + Ground Run CL=0')
+%         ylabel('Speed (m/s)');
+%         xlabel('Time (s)');
+% 
+%         hold on
+%         yyaxis right
+%         ylabel('Distance (m)');
+%         plot(t,x)
+%     end
+%     var=1;
+% 
+% end
+%% Case 4: Approach CLmax, Flare before the runway + Ground Run CLmax
+    var=0;
+    while var==0
 
-        hold on
-        yyaxis right
-        ylabel('Distance (m)');
-        plot(t,x)
+        Cl=parameters.CLmax;
+        Cd=parameters.Cd0 + parameters.k*Cl*Cl;
+
+
+        V=sqrt(2*m*g/(rho*S*Cl));
+        gamma=atan(Cd/Cl);
+        x1=sin(gamma)*(V^2)/(parameters.n-1);
+
+        T1=x1/V;
+        t1=[0:0.01:T1];
+        v=[V];
+        t=[0];
+        x=[0];
+
+        dt=0.01;
+
+
+        while 0 < v(end)
+            test_frottement=g-Cl*0.5*rho*S*(v(end)^2)/m;
+            if test_frottement <0
+                dv=-dt*0.5*rho*S*Cd*(v(end)^2)/m;
+                v=[v dv+v(end)];
+                t=[t t(end)+dt];
+                x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
+            else
+                dv=(dt*(0.5*rho*S*(parameters.f*Cl-Cd)*(v(end)^2)/m)-parameters.f*g*dt);
+                v=[v dv+v(end)];
+                t=[t t(end)+dt];
+                x=[x (((v(end)+v(end-1))*dt/2)+x(end))];
+            end
+        end
+
+%         figure(7)
+%         plot(t,v)
+%         title('Case 4: Approach CLmax, Flare before the runway + Ground Run CLmax')
+%         ylabel('Speed (m/s)');
+%         xlabel('Time (s)');
+% 
+%         hold on
+%         yyaxis right
+%         ylabel('Distance (m)');
+%         plot(t,x)
+          var=1;
+        
     end
-    var=1;
-    X=x(end)
-end
+    X=x(end);
 end
 

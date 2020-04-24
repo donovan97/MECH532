@@ -1,8 +1,6 @@
 %Constants
 parameters.test         =0;
-parameters.Wws     		= 0.00216 ;  					    % [kg]           Weight of wing structure
-parameters.Wfus    		= 0.19+1.5; 						% [kg]           Weight of the fuselage
-parameters.Wto     		= parameters.Wws +parameters.Wfus;  % [kg]           Total aircraft weight
+%les poids sont à la fin
 parameters.rho          = 1.225;                            % [kg/m^3]       masse volumique   
 parameters.mu           = 18E-6 ;                           % [Pa/s]         viscosité dynamique   
 parameters.e            = 0.85 ;                            %                coefficient d'Oswald   
@@ -37,8 +35,8 @@ parameters.lv           =  0.85 ;                           % [m]            Hor
 
 %General Parameters
 
-parameters.Co      		= 0.2 ;     						% [m]            Chord length at wing root
-parameters.Ct      		= 0.2;     						% [m]            Chord length at wingtip
+parameters.Co      		= 0.175 ;     						% [m]            Chord length at wing root
+parameters.Ct      		= 0.175;     						% [m]            Chord length at wingtip
 parameters.c            = (parameters.Co+parameters.Ct)/2;  % [m]            Mean chord   
 parameters.lambda  		= parameters.Ct/parameters.Co;    	% [-]            Taper ratio
 parameters.t       		= 0.12*parameters.Co;  				% [m]            Max thickness of MH32
@@ -93,5 +91,9 @@ parameters.lf           = 1.4;                              % [m]            lon
 parameters.df           = 0.17;                             % [m]            diamètre du fuselage  
 parameters.Sprojf       = 0.15;                             % [m^2]          projected side area of fuselage 
 
+%poids
+parameters.Wws     		= 30*parameters.bw*pi*parameters.t*parameters.Co/4 ; 					    % [kg]           Weight of wing structure
+parameters.Wfus    		= 0.19+1.5; 						% [kg]           Weight of the fuselage
+parameters.Wto     		= parameters.Wws +parameters.Wfus;  % [kg]           Total aircraft weight
 
 save('param.mat','parameters')

@@ -235,7 +235,7 @@ if disp==1
     end
     X=x(end);
 end
-% %% Case 5: Approach CLmax, Flare before the runway + Ground Run CL=0
+ %% Case 5: Approach CLmax, Flare before the runway + Ground Run CL=0
 % var=0;
 % while var==0
 %     

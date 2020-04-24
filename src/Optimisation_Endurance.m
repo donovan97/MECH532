@@ -2,11 +2,11 @@ close all
 clear all
 global parameters
 Param_def;
-n=3;
+n=30;
 ct_min=0.05;
-ct_max=0.3;
-b_min=1;
-b_max=2;
+ct_max=0.25;
+b_min=1.5;
+b_max=4;
 ct=[];
 b=[];
 column_ct=transpose(linspace(ct_min,ct_max,n));  

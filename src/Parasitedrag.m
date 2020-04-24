@@ -101,7 +101,8 @@ Cd0 =(1/12)*(Cd0_w + Cd0_HT + Cd0_VT + Cd0_F);
 CD = Cd0_w + Cd0_HT + Cd0_VT + Cd0_F + k*Cl*Cl;
 parameters.Cd=CD;
 f = Cl/CD;
-
+V=Vreynolds;
+parameters.drag = 0.5*parameters.rho*parameters.Sw*V*V*parameters.Cd;
 
 
 

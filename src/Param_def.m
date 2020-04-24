@@ -35,8 +35,8 @@ parameters.lv           =  0.85 ;                           % [m]            Hor
 
 %General Parameters
 
-parameters.Co      		= 0.175 ;     						% [m]            Chord length at wing root
-parameters.Ct      		= 0.175;     						% [m]            Chord length at wingtip
+parameters.Co      		= 0.181 ;     						% [m]            Chord length at wing root
+parameters.Ct      		= 0.181;     						% [m]            Chord length at wingtip
 parameters.c            = (parameters.Co+parameters.Ct)/2;  % [m]            Mean chord   
 parameters.lambda  		= parameters.Ct/parameters.Co;    	% [-]            Taper ratio
 parameters.t       		= 0.12*parameters.Co;  				% [m]            Max thickness of MH32
@@ -56,7 +56,7 @@ parameters.k            =0.5;
 
 %Les paramètres avec un w correspondent aux paramètres de l'aile
 
-parameters.bw           = 2;                             % [m]            envergure/span
+parameters.bw           = 4;                             % [m]            envergure/span
 parameters.L       		= 0.5*parameters.bw;                % [m]            Needed for load_forces and moment
 parameters.x            = linspace(0, parameters.L,1000);
 parameters.Sw           = parameters.bw*parameters.Ct;      % [m^2]          surface à l'air

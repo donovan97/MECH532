@@ -2,7 +2,7 @@ close all
 clear all
 global parameters
 Param_def;
-n=20;
+n=3;
 ct_min=0.05;
 ct_max=0.3;
 b_min=1;
@@ -57,7 +57,7 @@ for i=1:n
         parameters.Wws     		= 30*parameters.bw*pi*parameters.t*parameters.Co/4 ;  					    % [kg]           Weight of wing structure
         parameters.Wfus    		= 0.19+1.5; 						% [kg]           Weight of the fuselage
         parameters.Wto     		= parameters.Wws +parameters.Wfus;  % [kg]           Total aircraft weight
-        parameters.Wto 
+ 
 
         [CLmp,CDmp, Cd0, k] = Derivation_CL_mp(0);
         parameters.Cl=CLmp;

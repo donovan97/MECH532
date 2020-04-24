@@ -1,5 +1,5 @@
 function [CLmd,CDmd, Cd0, k] = Derivation_CL_mp(disp)
-%UNTITLED2 Summary of this function goes here
+%Derivation of Cl min power
 %   Detailed explanation goes here
 global parameters
 

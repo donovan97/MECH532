@@ -15,7 +15,7 @@ m=parameters.Wto;
 S=parameters.Sw;
 rho=parameters.rho;
 if disp==1
-    %% Case 1: Approach CLmd, Flare + Ground Run CLmd
+    %% Case 1: Approach CLmp, Flare + Ground Run CLmp
     var=0;
     while var==0
         Cl=parameters.Cl;
@@ -59,7 +59,7 @@ if disp==1
         x(end)
         figure(4)
         plot(t,v)
-        title('Case 1: Approach CLmd, Flare + Ground Run CLmd')
+        title('Case 1: Approach CLmp, Flare + Ground Run CLmp')
         ylabel('Speed (m/s)');
         xlabel('Time (s)');
 
